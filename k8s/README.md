@@ -6,6 +6,7 @@
 docker run --name some-redis -d redis redis-server --appendonly yes
 ```
 
+
 ```
 apiVersion: v1
 kind: Service
@@ -51,7 +52,6 @@ spec:
 ```
 
 ## Redis password
-
 ```
 redis.Connection(host='localhost', port=6379, db=0, password=None,
                  socket_timeout=None, socket_connect_timeout=None,

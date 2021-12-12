@@ -21,31 +21,31 @@ spec:
         prometheus.io/port: "8000"
     spec:
       containers:
-        - image: eu.gcr.io/pmoncada-001/keepcoding/flask-counter:v1.5.1
-          name: flask
-          livenessProbe:
-            httpGet:
-              path: /health/live
-              port: 5000
-          readinessProbe:
-            httpGet:
-              path: /health/ready
-              port: 5000
-          env:
-            - name: REDIS_HOST
-              value: redis
-            - name: REDIS_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: redis
-                  key: password
-          resources:
-            requests:
-              memory: 128Mi
-              cpu: 100m
-            limits:
-              memory: 256Mi
-              cpu: 200m
-          #livenessProbe: {}
-
+      - image: eu.gcr.io/pmoncada-001/keepcoding/flask-counter:v1.5.1
+        name: flask
+        livenessProbe:
+          httpGet:
+            path: /health/live
+            port: 5000
+        readinessProbe:
+          httpGet:
+            path: /health/ready
+            port: 5000
+        env:
+          - name: REDIS_HOST
+            value: redis
+          - name: REDIS_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: redis
+                key: password
+        resources:
+          requests:
+            memory: 128Mi
+            cpu: 100m
+          limits:
+            memory: 256Mi
+            cpu: 200m
+        #livenessProbe: {}
+            
 status: {}

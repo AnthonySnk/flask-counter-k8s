@@ -61,3 +61,4 @@ def health_live():
 @app.route('/health/ready')
 def health_ready():
     return "Ok"
+
